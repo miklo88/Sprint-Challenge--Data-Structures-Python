@@ -56,4 +56,17 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        pass
+        #while loop through and point the pointer to the prev, declare it the next_node and set it to the head.
+        while node:
+            next_node = node.get_next()
+            node.next_node = prev
+            prev = node
+            node = next_node
+        self.head = prev
+
+# sprint_list = LinkedList()
+# sprint_list.add_to_head(0)
+# sprint_list.add_to_head(1)
+# sprint_list.add_to_head(2)
+# sprint_list.add_to_head(3)
+# print(sprint_list)
