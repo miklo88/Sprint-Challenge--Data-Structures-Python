@@ -16,39 +16,46 @@ class BSTNode:
         #compare to the new value we want to insert
         if value < self.value:
             #set the left to the new node with the new value if left is empty
-            if self.left is None:
-                self.left = new_node
+            if self.left:
+                # self.left = new_node
+                self.left.insert(value)
             else:
                 # self.left.insert(value)
-                self.left.BSTNode(value)
+                self.left = BSTNode(value)
 #set the right child to the new node with the new value
         # if value >= self.value:
         else:  
-            if self.right is None:
-                self.right = new_node
+            if self.right:
+                # self.right = new_node
+                self.right.insert(value)
             else:
                 # self.right.insert(value)
-                self.right.BSTNode(value)
+                self.right = BSTNode(value)
     
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
         #if the target is equal to the base node or root node
-        if self.value == target:
+        # if self.value == target:
+        if target == self.value:
             return True
         #compar the target to the current value
         # if current value < target
-        found = False
-        if self.value > target:
+        # found = False
+        # if self.value >= target:
+        elif target < self.value and self.left:
             #check the left subtree self.left.contains(target)
-            if self.left is None:
-                return False
-            found = self.left.contains(target)
+            # if self.left is None:
+            return self.left.contains(target)
+                # return False
+            # found = self.left.contains(target)
 #if current value >= target
-        if self.value < target:
+        # if self.value > target:
+        elif target > self.value and self.right:
         #check if right subtree contains target
         #if you cannot go right, return false
-            if self.right is None:
-                return False
-            found = self.right.contains(target)
-        return found
+            # if self.right is None:
+                # return False
+            # found = self.right.contains(target)
+            return self.right.contains(target)
+        # return found
