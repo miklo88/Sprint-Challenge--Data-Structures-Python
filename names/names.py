@@ -21,16 +21,19 @@ duplicates = []  # Return the list of duplicates in this data structure
 #             duplicates.append(name_1)
 BST = BSTNode("")
 
-for name in names_1:
-    BST.insert(name)
+for name_1 in names_1:
+    BST.insert(name_1)
 
-    for name in names_2:
-        if BST.contains(name):
-            duplicates.append(name)
+for name_2 in names_2:
+    if BST.contains(name_2):
+        duplicates.append(name_2)
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
+#runtime 1/3: 0.20626521110534668 seconds
+#runtime 2/3: 0.19241619110107422 seconds
+#runtime 3/3: 0.20587706565856934 seconds
 
 '''
 UPER notes
